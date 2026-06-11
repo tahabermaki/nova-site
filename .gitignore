@@ -1,0 +1,17 @@
+# Clés API — ne jamais committer
+.env
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node (si tu ajoutes du tooling plus tard)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
