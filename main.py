@@ -32,8 +32,10 @@ app.add_middleware(
     allow_origins=[
         "https://novaaisystems.fr",
         "https://www.novaaisystems.fr",
+        "https://zippy-halva-309550.netlify.app",
         "http://localhost:3000",
-        "http://127.0.0.1:5500",  # Live Server VSCode
+        "http://127.0.0.1:5500",
+        "http://127.0.0.1:5501",
     ],
     allow_methods=["POST"],
     allow_headers=["*"],
