@@ -343,7 +343,7 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
   .logo img{height:32px}
   .nav-links{display:none}
   .burger{display:block}
-  .btn-outline{font-size:13px;padding:8px 14px}
+  .btn-outline{font-size:12px;padding:7px 12px;white-space:nowrap}
   .nav-links.open{
     display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
     background:#fff;padding:20px 18px;border-bottom:1px solid var(--border);gap:16px;z-index:99;
@@ -353,28 +353,43 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
   .hero-visual{padding:28px 20px;min-height:auto}
   .typewriter{font-size:12px;line-height:1.9}
   .hero-socials{display:none}
+  .btn-primary{font-size:15px;padding:14px 24px}
   .agents-grid{grid-template-columns:1fr}
   .agent-card{padding:36px 24px 40px}
   .agent-card .icon{margin-bottom:40px}
   .custom-banner{padding:36px 24px;flex-direction:column}
   .custom-banner .actions{min-width:unset;width:100%}
-  .demo-wrap{grid-template-columns:1fr;min-height:unset}
-  .demo-side{border-right:none;border-bottom:1px solid var(--border);flex-direction:row;overflow-x:auto;padding:10px 12px;-webkit-overflow-scrolling:touch}
+  .agents-demo-link a{font-size:15px}
+  .demo{padding:60px 0}
+  .demo-wrap{grid-template-columns:1fr;min-height:unset;border-radius:0}
+  .demo-side{
+    border-right:none;border-bottom:1px solid var(--border);
+    flex-direction:row;overflow-x:auto;padding:10px 12px;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .demo-side::-webkit-scrollbar{display:none}
   .demo-side .side-title{display:none}
-  .agent-pick{border-left:none;border-bottom:3px solid transparent;white-space:nowrap;padding:8px 14px;flex-shrink:0}
+  .agent-pick{
+    border-left:none;border-bottom:3px solid transparent;
+    white-space:nowrap;padding:8px 14px;flex-shrink:0;font-size:14px;
+  }
   .agent-pick.active{border-bottom-color:var(--blue);background:#F2F6FF}
   .agent-pick small{display:none}
-  .chat-msgs{max-height:340px;padding:18px}
-  .msg{max-width:92%;font-size:14px}
-  .chat-input{padding:12px 14px;gap:8px}
-  .chat-input input{font-size:14px;padding:11px 16px}
-  .chat-input button{padding:0 18px;font-size:14px}
-  .chat-suggest{padding:0 14px 12px;gap:6px}
-  .chat-suggest button{font-size:12px;padding:6px 12px}
+  .chat-head{padding:12px 16px;font-size:13px}
   .real-badge{display:none}
+  .chat-msgs{max-height:320px;padding:16px}
+  .msg{max-width:90%;font-size:14px;padding:11px 14px}
+  .chat-suggest{padding:0 12px 10px;gap:6px}
+  .chat-suggest button{font-size:12px;padding:6px 12px}
+  .chat-input{padding:10px 12px;gap:8px}
+  .chat-input input{font-size:14px;padding:10px 14px}
+  .chat-input button{padding:0 16px;font-size:14px;flex-shrink:0}
+  .rdv-btn{font-size:13px;padding:10px 18px;margin:0 16px}
   .case{padding:60px 0}
   .case-grid{grid-template-columns:1fr;gap:32px}
   .stats-grid{grid-template-columns:1fr 1fr!important}
+  .case-stat{padding:20px 16px}
+  .case-stat .v{font-size:24px}
   .about{padding:60px 0}
   .about-grid{grid-template-columns:1fr;gap:24px}
   .about p{font-size:clamp(18px,5vw,24px)}
@@ -384,11 +399,12 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
   .how-step:last-child{border-bottom:none}
   .pricing-box{grid-template-columns:1fr;padding:36px 24px;gap:32px}
   .features-card{padding:32px 24px}
-  .footer-email{font-size:clamp(18px,5.5vw,28px);word-break:break-all;display:block}
+  footer{padding:60px 0 30px}
+  .footer-email{font-size:clamp(16px,5vw,26px);word-break:break-all;display:block}
   .footer-meta{gap:32px}
   .footer-bottom{flex-direction:column;gap:8px;font-size:12px}
-  .mail-templates a{font-size:13px;padding:9px 16px}
-  footer{padding:60px 0 30px}
+  .mail-templates{flex-direction:column}
+  .mail-templates a{font-size:13px;padding:9px 16px;justify-content:center}
 }
 </style>
 </head>
@@ -542,31 +558,22 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
   </div>
 </section>
 
-<!-- ================= CAS CONCRET ================= -->
+<!-- ================= EN CHIFFRES ================= -->
 <section class="case" id="cas">
   <div class="container">
-    <div class="section-label">Cas concret</div>
-    <div class="case-grid">
-      <div>
-        <h2>Un réseau de centres automobiles au Maroc a automatisé son service client.</h2>
-        <p class="ctx">WhatsApp et email traités automatiquement de bout en bout : tarifs, disponibilités et prise de RDV, connectés aux outils déjà en place (Google Sheets, Google Calendar). L'équipe n'intervient que sur les cas complexes — l'agent escalade tout seul.</p>
-        <div class="case-stats">
-          <div class="case-stat"><div class="v">24/7</div><div class="l">Réponses instantanées, même le dimanche</div></div>
-          <div class="case-stat"><div class="v">2 canaux</div><div class="l">WhatsApp + email, un seul agent</div></div>
-          <div class="case-stat"><div class="v">100%</div><div class="l">des demandes reçoivent une réponse</div></div>
-        </div>
-        <div class="case-tags">
-          <span>Automobile</span><span>WhatsApp Business</span><span>Google Sheets</span><span>Google Calendar</span><span>Maroc</span>
-        </div>
+    <div class="section-label">Nos agents en chiffres</div>
+    <div style="margin-top:50px">
+      <h2 style="font-size:clamp(26px,3.6vw,42px);font-weight:500;letter-spacing:-.02em;max-width:600px;margin-bottom:48px;line-height:1.25">Ce que nos agents font concrètement, chaque jour.</h2>
+      <div class="stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:36px">
+        <div class="case-stat"><div class="v">24/7</div><div class="l">Disponibilité sans interruption, week-ends et jours fériés inclus</div></div>
+        <div class="case-stat"><div class="v">&lt; 5s</div><div class="l">Temps de réponse moyen, là où un humain répond en heures</div></div>
+        <div class="case-stat"><div class="v">4 langues</div><div class="l">Français, anglais, arabe, darija — détection automatique</div></div>
+        <div class="case-stat"><div class="v">7–14j</div><div class="l">De l'audit à la mise en production, connecté à vos outils existants</div></div>
       </div>
-      <div class="quote-card">
-        <div class="qmark">“</div>
-        <blockquote>Avant, les demandes du soir et du week-end restaient sans réponse. Aujourd'hui l'agent répond à tout, donne les tarifs, propose les créneaux — et nous, on ne traite que ce qui demande vraiment un humain.</blockquote>
-        <div class="who">
-          <div class="avatar">Y.</div>
-          <p><strong>Y. — Directeur</strong>Réseau de centres automobiles, Maroc</p>
-        </div>
+      <div class="case-tags">
+        <span>WhatsApp Business</span><span>Email</span><span>Google Sheets</span><span>Google Calendar</span><span>CRM</span><span>Site web</span><span>France &amp; Maroc</span>
       </div>
+      <p style="margin-top:32px;font-size:16px;color:var(--muted);max-width:560px;line-height:1.75">Chaque agent est construit autour de vos processus — pas l'inverse. <a href="https://calendly.com/taha-elbermaki-novaaisystems/30min" target="_blank" rel="noopener" style="color:var(--blue);text-decoration:underline">15 minutes d'audit gratuit</a> pour identifier ce qui vous coûte le plus de temps.</p>
     </div>
   </div>
 </section>
