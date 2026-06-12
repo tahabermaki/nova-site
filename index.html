@@ -55,7 +55,7 @@ nav{
   transition:all .25s;display:inline-block;background:transparent;cursor:pointer;font-family:inherit;
 }
 .btn-outline:hover{background:var(--blue);color:#fff}
-.burger{display:none;background:none;border:none;font-size:24px;cursor:pointer}
+.burger{display:none;background:none;border:none;font-size:24px;cursor:pointer;padding:4px;flex-shrink:0;white-space:nowrap}
 
 /* ============ HERO ============ */
 .hero{
@@ -315,7 +315,7 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
 .footer-link:hover{color:#6FA0FF}
 .footer-email{
   font-size:clamp(30px,4.4vw,52px);font-weight:400;letter-spacing:-.01em;
-  margin:34px 0 26px;display:inline-block;transition:color .25s;
+  margin:34px 0 26px;display:block;transition:color .25s;word-break:break-all;
 }
 .footer-email:hover{color:#6FA0FF}
 .mail-templates{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:64px}
@@ -337,32 +337,58 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:900px){
-  .container{padding:0 24px}
-  nav{padding:14px 24px}
+  .container{padding:0 18px}
+  nav{padding:12px 18px;gap:8px}
+  .logo{font-size:15px}
+  .logo img{height:32px}
   .nav-links{display:none}
   .burger{display:block}
+  .btn-outline{font-size:13px;padding:8px 14px}
   .nav-links.open{
     display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
-    background:#fff;padding:24px;border-bottom:1px solid var(--border);gap:18px;
+    background:#fff;padding:20px 18px;border-bottom:1px solid var(--border);gap:16px;z-index:99;
   }
-  .about-grid{grid-template-columns:1fr;gap:30px}
-  .case-grid{grid-template-columns:1fr;gap:40px}
-  .quote-card{padding:36px 28px}
-  .agents-grid{grid-template-columns:1fr}
-  .custom-banner{padding:36px 28px}
-  .how-grid{grid-template-columns:1fr}
-  .how-step{border-right:none;border-bottom:1px solid var(--frame);padding:50px 30px}
-  .how-step:last-child{border-bottom:none}
-  .pricing-box{grid-template-columns:1fr;padding:44px 28px;gap:40px}
-  .demo-wrap{grid-template-columns:1fr}
-  .demo-side{border-right:none;border-bottom:1px solid var(--border);flex-direction:row;overflow-x:auto;padding:14px}
-  .demo-side .side-title{display:none}
-  .agent-pick{border-left:none;border-bottom:3px solid transparent;white-space:nowrap;padding:10px 16px}
-  .agent-pick.active{border-bottom-color:var(--blue)}
-  .agent-pick small{display:none}
+  .hero{padding:50px 0 40px}
   .hero-arrow{display:none}
-  .hero-visual{padding:32px 24px}
-  .typewriter{font-size:13px}
+  .hero-visual{padding:28px 20px;min-height:auto}
+  .typewriter{font-size:12px;line-height:1.9}
+  .hero-socials{display:none}
+  .agents-grid{grid-template-columns:1fr}
+  .agent-card{padding:36px 24px 40px}
+  .agent-card .icon{margin-bottom:40px}
+  .custom-banner{padding:36px 24px;flex-direction:column}
+  .custom-banner .actions{min-width:unset;width:100%}
+  .demo-wrap{grid-template-columns:1fr;min-height:unset}
+  .demo-side{border-right:none;border-bottom:1px solid var(--border);flex-direction:row;overflow-x:auto;padding:10px 12px;-webkit-overflow-scrolling:touch}
+  .demo-side .side-title{display:none}
+  .agent-pick{border-left:none;border-bottom:3px solid transparent;white-space:nowrap;padding:8px 14px;flex-shrink:0}
+  .agent-pick.active{border-bottom-color:var(--blue);background:#F2F6FF}
+  .agent-pick small{display:none}
+  .chat-msgs{max-height:340px;padding:18px}
+  .msg{max-width:92%;font-size:14px}
+  .chat-input{padding:12px 14px;gap:8px}
+  .chat-input input{font-size:14px;padding:11px 16px}
+  .chat-input button{padding:0 18px;font-size:14px}
+  .chat-suggest{padding:0 14px 12px;gap:6px}
+  .chat-suggest button{font-size:12px;padding:6px 12px}
+  .real-badge{display:none}
+  .case{padding:60px 0}
+  .case-grid{grid-template-columns:1fr;gap:32px}
+  .stats-grid{grid-template-columns:1fr 1fr!important}
+  .about{padding:60px 0}
+  .about-grid{grid-template-columns:1fr;gap:24px}
+  .about p{font-size:clamp(18px,5vw,24px)}
+  .how{padding:60px 0}
+  .how-grid{grid-template-columns:1fr}
+  .how-step{border-right:none;border-bottom:1px solid var(--frame);padding:40px 24px}
+  .how-step:last-child{border-bottom:none}
+  .pricing-box{grid-template-columns:1fr;padding:36px 24px;gap:32px}
+  .features-card{padding:32px 24px}
+  .footer-email{font-size:clamp(18px,5.5vw,28px);word-break:break-all;display:block}
+  .footer-meta{gap:32px}
+  .footer-bottom{flex-direction:column;gap:8px;font-size:12px}
+  .mail-templates a{font-size:13px;padding:9px 16px}
+  footer{padding:60px 0 30px}
 }
 </style>
 </head>
