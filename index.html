@@ -406,6 +406,49 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
   .footer-bottom{flex-direction:column;gap:8px;font-size:12px}
   .mail-templates{flex-direction:column}
   .mail-templates a{font-size:13px;padding:9px 16px;justify-content:center}
+
+  /* DEMO MOBILE FULLSCREEN */
+  .demo-wrap{display:block;border:none;background:transparent}
+  .demo-side{
+    display:grid;grid-template-columns:1fr 1fr;
+    border:none;overflow:visible;padding:0;gap:12px;
+    flex-direction:unset;
+  }
+  .agent-pick{
+    border:1px solid var(--border);border-bottom:1px solid var(--border);
+    border-radius:12px;padding:16px 14px;flex-shrink:unset;
+    white-space:normal;background:#fff;text-align:left;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .agent-pick strong{font-size:14px;font-weight:500;color:var(--text)}
+  .agent-pick small{display:block;font-size:12px;color:var(--muted)}
+  .agent-pick.active{
+    border-color:var(--blue);background:#F2F6FF;
+    border-bottom-color:var(--blue);
+  }
+  .agent-pick.active strong{color:var(--blue)}
+  .demo-chat{
+    display:none;position:fixed;top:0;left:0;right:0;bottom:0;
+    z-index:999;background:#fff;flex-direction:column;
+  }
+  .demo-chat.mobile-open{display:flex}
+  .mobile-chat-header{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 18px;border-bottom:1px solid var(--border);
+    background:#fff;flex-shrink:0;
+  }
+  .mobile-back-btn{
+    background:none;border:none;font-size:22px;cursor:pointer;
+    padding:4px 8px 4px 0;color:var(--text);flex-shrink:0;
+  }
+  .chat-head{display:none}
+  .chat-msgs{max-height:unset;flex:1;padding:16px}
+  .chat-input{padding:10px 14px;gap:8px;border-top:1px solid var(--border)}
+  .chat-input input{font-size:15px;padding:11px 16px;min-width:0;flex:1}
+  .chat-input button{padding:0 18px;font-size:15px;flex-shrink:0}
+  .chat-suggest{padding:0 14px 10px;gap:6px;flex-wrap:wrap}
+  .chat-suggest button{font-size:13px;padding:7px 12px;white-space:normal;text-align:left}
+  .rdv-btn{margin:0 14px}
 }
 </style>
 </head>
@@ -543,6 +586,12 @@ footer{background:var(--dark);color:#fff;padding:90px 0 40px;border-top:1px soli
       </div>
 
       <div class="demo-chat">
+        <div class="mobile-chat-header" id="mobileChatHeader" style="display:none">
+          <button class="mobile-back-btn" onclick="closeMobileChat()">←</button>
+          <span class="status-dot"></span>
+          <strong id="mobileChatAgentName" style="font-weight:500;font-size:15px"></strong>
+          <span class="real-badge" style="font-size:11px">Agent réel</span>
+        </div>
         <div class="chat-head">
           <span class="status-dot"></span>
           <strong id="chatAgentName" style="font-weight:500">Nova Assistant</strong>
@@ -926,6 +975,26 @@ function pickAgent(key, btn){
   msgsEl.innerHTML = '';
   addMsg(TOPICS[key].greeting, 'bot');
   renderSuggests();
+}
+
+/* ---- Mobile fullscreen chat ---- */
+function isMobile(){ return window.innerWidth < 900; }
+
+const origPickAgent = pickAgent;
+function pickAgent(key, btn){
+  origPickAgent(key, btn);
+  if(isMobile()){
+    document.getElementById('mobileChatAgentName').textContent = TOPICS[key].name;
+    document.getElementById('mobileChatHeader').style.display = 'flex';
+    document.querySelector('.demo-chat').classList.add('mobile-open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileChat(){
+  document.querySelector('.demo-chat').classList.remove('mobile-open');
+  document.body.style.overflow = '';
+  document.getElementById('mobileChatHeader').style.display = 'none';
 }
 
 function goDemo(key){
