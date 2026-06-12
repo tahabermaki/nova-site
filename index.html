@@ -975,15 +975,8 @@ function pickAgent(key, btn){
   msgsEl.innerHTML = '';
   addMsg(TOPICS[key].greeting, 'bot');
   renderSuggests();
-}
 
-/* ---- Mobile fullscreen chat ---- */
-function isMobile(){ return window.innerWidth < 900; }
-
-const origPickAgent = pickAgent;
-function pickAgent(key, btn){
-  origPickAgent(key, btn);
-  if(isMobile()){
+  if(window.innerWidth < 900){
     document.getElementById('mobileChatAgentName').textContent = TOPICS[key].name;
     document.getElementById('mobileChatHeader').style.display = 'flex';
     document.querySelector('.demo-chat').classList.add('mobile-open');
